@@ -20,6 +20,14 @@ const Form = () => {
 
   const router = useRouter();
 
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    }
+  };
+  
+
   const submit = async (e: any) => {
     setLoading(true);
     e.preventDefault();
@@ -45,7 +53,7 @@ const Form = () => {
         name: name,
         email: email,
         password: password,
-      });
+      }, config);
 
       console.log(response.data);
 
