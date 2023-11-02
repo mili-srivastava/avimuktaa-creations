@@ -21,13 +21,13 @@ export const POST = async (request: NextRequest) => {
     //check if password matches
     const isMatch = await bcrypt.compare(password, user.password);
 
-    if (!isMatch) {
-      return NextResponse.json({ status: 400, message: "Invalid credentials" });
+    if (isMatch) {
+      return NextResponse.json({ status: 200, message: "Login successful" });
     }
 
-    return NextResponse.json({ status: 200, message: "Login successful" });
+    return NextResponse.json({ status: 401, message: "invalid Credentials" });
   } catch (error: any) {
-    return NextResponse.json({ status: 500, message: error.msg });
+    return NextResponse.json({ status: 500, message: error.message });
   }
 };
 
