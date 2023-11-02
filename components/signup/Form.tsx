@@ -43,7 +43,7 @@ const Form = () => {
     try {
       const config = {
         headers: {
-          "Access-Control-Allow-Origin": "https://avimuktaa-creations.vercel.app",
+          "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
         },
       };
