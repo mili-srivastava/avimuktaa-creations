@@ -112,6 +112,7 @@ const Page = () => {
       <form action="POST" className="my-8 flex flex-col gap-3">
         <Input
           placeholder="Enter your email"
+          type="email"
           className="my-2"
           onChange={(e) => {
             setEmail(e.target.value);
@@ -119,6 +120,7 @@ const Page = () => {
         />
         <Input
           placeholder="Enter your password"
+          type="password"
           className="my-2"
           onChange={(e) => {
             setPassword(e.target.value);
