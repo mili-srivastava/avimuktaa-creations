@@ -20,14 +20,6 @@ const Form = () => {
 
   const router = useRouter();
 
-  const config = {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-    }
-  };
-  
-
   const submit = async (e: any) => {
     setLoading(true);
     e.preventDefault();
@@ -49,11 +41,22 @@ const Form = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/api/signup", {
-        name: name,
-        email: email,
-        password: password,
-      }, config);
+      const config = {
+        headers: {
+          "Access-Control-Allow-Origin": "https://avimuktaa-creations.vercel.app",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+      };
+
+      const response = await axios.post(
+        "http://localhost:3000/api/signup",
+        {
+          name: name,
+          email: email,
+          password: password,
+        },
+        config
+      );
 
       console.log(response.data);
 
