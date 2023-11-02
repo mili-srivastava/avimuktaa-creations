@@ -41,21 +41,14 @@ const Form = () => {
     }
 
     try {
-      const config = {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        },
-      };
-
       const response = await axios.post(
-        "http://localhost:3000/api/signup",
+        "/api/signup",
         {
           name: name,
           email: email,
           password: password,
         },
-        config
+        
       );
 
       console.log(response.data);
